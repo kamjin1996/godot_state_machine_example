@@ -1,3 +1,4 @@
+class_name PlayerFallState
 extends State
 
 @export var player: Player
@@ -11,8 +12,9 @@ func enter() -> void:
 
 func process_physics(delta: float) -> State:
 	player.velocity.y = gravity * delta
-	player.velocity.y += player.jump_force / 2
+	player.velocity.y += player.jump_heigh / 2
 	player.move_and_slide()
+
 	if player.is_on_floor():
-		return player.idle_state
+		return player.running_state
 	return null

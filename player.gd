@@ -6,7 +6,8 @@ extends CharacterBody2D
 @export var animator: AnimationPlayer
 @export var sprite_2d: Sprite2D
 
-@export var jump_force: float
+@export var jump_heigh: float
+@export var jump_normal: float
 @export var max_speed: float
 @export var acceleration: float = 400.0
 

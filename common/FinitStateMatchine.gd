@@ -11,6 +11,7 @@ func _ready() -> void:
 
 
 func change_state(new_state: State) -> void:
+	print("current_state:%s new_state:%s" % [current_state.name, new_state.name])
 	if current_state != null:
 		current_state.exit()
 	current_state = new_state
