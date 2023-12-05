@@ -21,6 +21,7 @@ func process_physics(delta: float) -> State:
 		player.sprite_2d.flip_h = movement < 0
 
 	# 实现长按大跳，按的时间短则跳的低，但不会低于一个最低值：普通跳的设定高度
+	# 参考作者：唯一Colorgamer 链接：https://zhuanlan.zhihu.com/p/285537714
 	if Input.is_action_just_released("jump") and player.velocity.y < 0:
 		if player.jump_heigh - abs(player.velocity.y) < player.jump_normal:
 			player.velocity.y += player.jump_heigh - player.jump_normal

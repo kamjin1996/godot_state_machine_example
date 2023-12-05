@@ -1,3 +1,5 @@
+# 状态机参考作者：shaggydev 链接：https://shaggydev.com/2023/10/08/godot-4-state-machines/
+# 当前状态机和状态的编码又进一步解耦了其他不必要的状态值持有和少部分写法更改
 class_name FinitStateMatchine
 extends Node
 
