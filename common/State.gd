@@ -1,6 +1,12 @@
 class_name State
 extends Node
 
+var state_machine: FinitStateMatchine
+
+
+func _set_state_machine(v):
+	state_machine = v
+
 
 func enter():
 	pass

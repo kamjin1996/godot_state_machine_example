@@ -1,12 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://dkko1h7s5asoh"]
+[gd_scene load_steps=19 format=3 uid="uid://dkko1h7s5asoh"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_h6oer"]
 [ext_resource type="Texture2D" uid="uid://dubygrkvk4el4" path="res://generic_char_v0.2/png/blue/char_blue_1.png" id="1_xnqbf"]
+[ext_resource type="Texture2D" uid="uid://dfb7hd5bypyeo" path="res://generic_char_v0.2/png/blue/char_blue_2.png" id="2_3a6it"]
 [ext_resource type="Script" path="res://common/FinitStateMatchine.gd" id="3_mjmar"]
 [ext_resource type="Script" path="res://PlayerIdleState.gd" id="4_b732n"]
 [ext_resource type="Script" path="res://PlayerJumpState.gd" id="5_h4vea"]
 [ext_resource type="Script" path="res://PlayerRunningState.gd" id="6_rwn7t"]
 [ext_resource type="Script" path="res://PlayerFallState.gd" id="7_x3aw6"]
+[ext_resource type="Script" path="res://PlayerWallSlidingState.gd" id="9_hnr63"]
 
 [sub_resource type="Animation" id="Animation_3w3l3"]
 length = 0.001
@@ -183,10 +185,10 @@ tracks/1/path = NodePath("Graphics/Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [0, 1, 2, 3, 4, 5, 5]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -240,7 +242,6 @@ tracks/5/keys = {
 [sub_resource type="Animation" id="Animation_r6gb1"]
 resource_name = "jump"
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -248,10 +249,10 @@ tracks/0/path = NodePath("Graphics/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [0, 1, 2, 3]
+"values": [0, 1, 2, 3, 3]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -378,10 +379,10 @@ tracks/0/path = NodePath("Graphics/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 7]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -436,6 +437,78 @@ tracks/4/keys = {
 resource_name = "wall_sliding"
 length = 0.4
 loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 168, 224, 56)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphics/Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_3a6it")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Graphics/Sprite2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, -10)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Graphics/Sprite2D:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jl6a6"]
 _data = {
@@ -449,16 +522,16 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ljvg"]
-size = Vector2(13, 30)
+size = Vector2(13.334, 29)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animator", "graphics", "left_outer", "center_inner", "right_outer", "jump_state", "fall_state", "running_state", "idle_state")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animator", "graphics", "left_outer", "center_inner", "right_outer", "jump_state", "fall_state", "running_state", "idle_state", "wall_sliding_state")]
 position = Vector2(168, -180)
 script = ExtResource("1_h6oer")
 animator = NodePath("AnimationPlayer")
 graphics = NodePath("Graphics")
-left_outer = NodePath("HeadCollideLeftOuter")
-center_inner = NodePath("HeadCollideCenterInner")
-right_outer = NodePath("HeadCollideRightOuter")
+left_outer = NodePath("HeadCollideLeftOuterChecker")
+center_inner = NodePath("HeadCollideCenterInnerChecker")
+right_outer = NodePath("HeadCollideRightOuterChecker")
 jump_heigh = 300.0
 jump_normal = 190.0
 max_speed = 160.0
@@ -467,16 +540,17 @@ jump_state = NodePath("FinitStateMatchine/PlayerJumpState")
 fall_state = NodePath("FinitStateMatchine/PlayerFallState")
 running_state = NodePath("FinitStateMatchine/PlayerRunningState")
 idle_state = NodePath("FinitStateMatchine/PlayerIdleState")
+wall_sliding_state = NodePath("FinitStateMatchine/PlayerWallSlidingState")
 
-[node name="HeadCollideRightOuter" type="RayCast2D" parent="."]
+[node name="HeadCollideRightOuterChecker" type="RayCast2D" parent="."]
 position = Vector2(-162, 166)
 target_position = Vector2(2, -21)
 
-[node name="HeadCollideCenterInner" type="RayCast2D" parent="."]
+[node name="HeadCollideCenterInnerChecker" type="RayCast2D" parent="."]
 position = Vector2(-169, 165)
 target_position = Vector2(0, -17)
 
-[node name="HeadCollideLeftOuter" type="RayCast2D" parent="."]
+[node name="HeadCollideLeftOuterChecker" type="RayCast2D" parent="."]
 position = Vector2(-175, 166)
 target_position = Vector2(-4, -19)
 
@@ -490,13 +564,22 @@ hframes = 4
 region_enabled = true
 region_rect = Rect2(0, 224, 224, 56)
 
+[node name="HandToWallChecker" type="RayCast2D" parent="Graphics"]
+position = Vector2(1, -7)
+target_position = Vector2(9, 0)
+
+[node name="FootToWallChecker" type="RayCast2D" parent="Graphics"]
+position = Vector2(1, 10)
+target_position = Vector2(9, 0)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_jl6a6")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-169, 180)
+position = Vector2(-168.5, 179.5)
+scale = Vector2(1.12494, 1)
 shape = SubResource("RectangleShape2D_8ljvg")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
@@ -520,6 +603,12 @@ script = ExtResource("6_rwn7t")
 player = NodePath("../..")
 coyote_timer = NodePath("../../CoyoteTimer")
 
-[node name="PlayerFallState" type="Node" parent="FinitStateMatchine" node_paths=PackedStringArray("player")]
+[node name="PlayerFallState" type="Node" parent="FinitStateMatchine" node_paths=PackedStringArray("player", "hand_to_wall_checker", "foot_to_wall_checker")]
 script = ExtResource("7_x3aw6")
+player = NodePath("../..")
+hand_to_wall_checker = NodePath("../../Graphics/HandToWallChecker")
+foot_to_wall_checker = NodePath("../../Graphics/FootToWallChecker")
+
+[node name="PlayerWallSlidingState" type="Node" parent="FinitStateMatchine" node_paths=PackedStringArray("player")]
+script = ExtResource("9_hnr63")
 player = NodePath("../..")

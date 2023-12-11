@@ -19,6 +19,7 @@ extends CharacterBody2D
 @export var fall_state: State
 @export var running_state: State
 @export var idle_state: State
+@export var wall_sliding_state: State
 
 
 func _ready() -> void:

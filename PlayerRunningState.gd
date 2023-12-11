@@ -13,6 +13,7 @@ var x_delta = 0
 
 
 func process_physics(delta: float) -> State:
+	#print("time:%s" % state_machine.current_state_time)
 	var direction = Input.get_axis("move_left", "move_right")
 
 	# 处理同时按下问题

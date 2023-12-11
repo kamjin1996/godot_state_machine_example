@@ -10,6 +10,6 @@ func enter() -> void:
 
 
 func process_physics(delta: float) -> State:
-	if not player.animator.is_playing():
-		return player.idle_state
+	if !Input.get_axis("move_left", "move_right") == 0:
+		return player.running_state
 	return null

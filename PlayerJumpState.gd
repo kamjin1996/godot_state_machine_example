@@ -10,18 +10,29 @@ var gravity = ProjectSettings.get("physics/2d/default_gravity")
 
 
 func enter():
+	player.velocity.y = 0.0
 	player.animator.play("jump")
 	player.velocity.y = -player.jump_heigh
+
+
+func flip_h_jump_animation(movement: float):
+	if state_machine.last_state == player.wall_sliding_state:
+		# 这里不清楚为什么需要取反，但是取反动画朝向就正常了
+		movement = -movement
+
+	# 如果玩家有输入 则翻转动画
+	if !is_zero_approx(movement):
+		player.graphics.scale.x = -1 if movement < 0 else 1
 
 
 func process_physics(delta: float) -> State:
 	# 给予角色重力
 	player.velocity.y += gravity * delta
 
-	# 翻转动画
 	var movement = Input.get_axis("move_left", "move_right") * player.max_speed
-	if !is_zero_approx(movement):
-		player.graphics.scale.x = -1 if movement < 0 else 1
+
+	# 翻转动画
+	flip_h_jump_animation(movement)
 
 	# 手感优化：实现长按大跳，按的时间短则跳的低，但不会低于一个最低值：普通跳的设定高度
 	if Input.is_action_just_released("jump") and player.velocity.y < 0:
