@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://byguivk18f8p8"]
+
+[ext_resource type="Texture2D" uid="uid://b6a3lp0j5gku2" path="res://temp/QQ图片20231209160548.png" id="1_l2gqs"]
+[ext_resource type="Texture2D" uid="uid://cns4fpl6cam0k" path="res://icon.svg" id="2_vreuf"]
+[ext_resource type="Texture2D" uid="uid://j5glcqt42iur" path="res://temp/4e044a69b3183eca1fd33ad890a9d0d.jpg" id="3_2llfj"]
+[ext_resource type="Script" path="res://Icon.gd" id="4_ohwla"]
+
+[node name="TextureRect" type="TextureRect"]
+offset_left = 103.0
+offset_top = 17.0
+offset_right = 343.0
+offset_bottom = 257.0
+scale = Vector2(0.752555, 0.709656)
+texture = ExtResource("1_l2gqs")
+stretch_mode = 2
+
+[node name="4e044a69b3183Eca1Fd33Ad890a9d0d" type="Sprite2D" parent="."]
+position = Vector2(475.97, 88.2416)
+scale = Vector2(0.11611, 0.128326)
+texture = ExtResource("3_2llfj")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(196.081, 95.3009)
+scale = Vector2(0.615234, 0.658203)
+texture = ExtResource("2_vreuf")
+script = ExtResource("4_ohwla")

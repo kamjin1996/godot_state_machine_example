@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @onready var camera_2d_2: Camera2D = $Player/Camera2D2
 @onready var tile_map: TileMap = $TileMap
 
@@ -15,4 +14,3 @@ func _ready() -> void:
 	camera_2d_2.limit_bottom = used.end.y * tile_size.y
 	camera_2d_2.limit_left = -used.position.x * tile_size.x
 	camera_2d_2.reset_smoothing()
-

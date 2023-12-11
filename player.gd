@@ -4,7 +4,11 @@ extends CharacterBody2D
 @onready var finit_state_matchine: FinitStateMatchine = $FinitStateMatchine as FinitStateMatchine
 
 @export var animator: AnimationPlayer
-@export var sprite_2d: Sprite2D
+@export var graphics: Node2D
+
+@export var left_outer: RayCast2D
+@export var center_inner: RayCast2D
+@export var right_outer: RayCast2D
 
 @export var jump_heigh: float
 @export var jump_normal: float
