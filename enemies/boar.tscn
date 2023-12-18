@@ -1,0 +1,241 @@
+[gd_scene load_steps=15 format=3 uid="uid://b8qrujbr02m84"]
+
+[ext_resource type="PackedScene" uid="uid://jea5jl8ufdlr" path="res://enemies/enemy.tscn" id="1_2ulh5"]
+[ext_resource type="Script" path="res://enemies/Boar.gd" id="2_aoxm1"]
+[ext_resource type="Texture2D" uid="uid://1ihlf4cw050g" path="res://Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet.png" id="3_0ylfb"]
+[ext_resource type="Texture2D" uid="uid://c2vxc3cycv3r7" path="res://Legacy-Fantasy - High Forest 2.3/Mob/Boar/Walk/Walk-Base-Sheet.png" id="4_4n7t5"]
+[ext_resource type="Texture2D" uid="uid://d32plnqyra4l1" path="res://Legacy-Fantasy - High Forest 2.3/Mob/Boar/Run/Run-Sheet.png" id="5_6l5gl"]
+[ext_resource type="Script" path="res://enemies/BoarIdleState.gd" id="6_70rbg"]
+[ext_resource type="Script" path="res://enemies/BoarRunState.gd" id="7_uipt8"]
+[ext_resource type="Script" path="res://enemies/BoarWalkState.gd" id="8_6yuys"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_noyvr"]
+radius = 11.0454
+
+[sub_resource type="Animation" id="Animation_74qra"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphcis/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_0ylfb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphcis/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphcis/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7djxh"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphcis/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_0ylfb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphcis/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphcis/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 3]
+}
+
+[sub_resource type="Animation" id="Animation_54arf"]
+resource_name = "run"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphcis/Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphcis/Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_6l5gl")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphcis/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 5]
+}
+
+[sub_resource type="Animation" id="Animation_lcdi3"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphcis/Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphcis/Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_4n7t5")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphcis/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tooha"]
+_data = {
+"RESET": SubResource("Animation_74qra"),
+"idle": SubResource("Animation_7djxh"),
+"run": SubResource("Animation_54arf"),
+"walk": SubResource("Animation_lcdi3")
+}
+
+[node name="Boar" node_paths=PackedStringArray("walk_state", "run_state", "idle_state", "graphcis", "animator") instance=ExtResource("1_2ulh5")]
+collision_layer = 4
+script = ExtResource("2_aoxm1")
+run_speed = 200.0
+walk_speed = 30.0
+walk_state = NodePath("FinitStateMatchine/BoarWalkState")
+run_state = NodePath("FinitStateMatchine/BoarRunState")
+idle_state = NodePath("FinitStateMatchine/BoarIdleState")
+graphcis = NodePath("Graphcis")
+animator = NodePath("AnimationPlayer")
+
+[node name="WallChecker" type="RayCast2D" parent="Graphcis" index="0"]
+position = Vector2(-11, -3)
+target_position = Vector2(-11, -1)
+
+[node name="PlayerChecker" type="RayCast2D" parent="Graphcis" index="1"]
+position = Vector2(-7, -4)
+target_position = Vector2(-51, 0)
+collision_mask = 2
+
+[node name="Sprite2D" parent="Graphcis" index="2"]
+position = Vector2(1, -5)
+texture = ExtResource("3_0ylfb")
+hframes = 4
+
+[node name="CliffChecker" type="RayCast2D" parent="Graphcis" index="3"]
+position = Vector2(-13, 4)
+target_position = Vector2(0, 9)
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_noyvr")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_tooha")
+}
+
+[node name="FinitStateMatchine" parent="." index="3" node_paths=PackedStringArray("starting_state")]
+starting_state = NodePath("BoarIdleState")
+
+[node name="BoarIdleState" type="Node" parent="FinitStateMatchine" index="0" node_paths=PackedStringArray("boar", "onset_timer")]
+script = ExtResource("6_70rbg")
+boar = NodePath("../..")
+onset_timer = NodePath("../../OnsetTimer")
+
+[node name="BoarRunState" type="Node" parent="FinitStateMatchine" index="1" node_paths=PackedStringArray("boar", "onset_timer")]
+script = ExtResource("7_uipt8")
+boar = NodePath("../..")
+onset_timer = NodePath("../../OnsetTimer")
+
+[node name="BoarWalkState" type="Node" parent="FinitStateMatchine" index="2" node_paths=PackedStringArray("boar")]
+script = ExtResource("8_6yuys")
+boar = NodePath("../..")
+
+[node name="OnsetTimer" type="Timer" parent="." index="4"]
+wait_time = 2.5
+one_shot = true

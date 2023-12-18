@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://n83mhpwh6hqp"]
+[gd_scene load_steps=9 format=3 uid="uid://n83mhpwh6hqp"]
 
 [ext_resource type="Texture2D" uid="uid://b04p0llskk4yv" path="res://Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="1_8fmgm"]
 [ext_resource type="Script" path="res://world.gd" id="1_eaqxo"]
-[ext_resource type="PackedScene" uid="uid://dkko1h7s5asoh" path="res://player.tscn" id="2_yr432"]
+[ext_resource type="PackedScene" uid="uid://dkko1h7s5asoh" path="res://player/player.tscn" id="2_yr432"]
 [ext_resource type="Texture2D" uid="uid://dssl34x2inu3a" path="res://Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="4_8rq73"]
 [ext_resource type="Texture2D" uid="uid://1igewrcef1ay" path="res://Legacy-Fantasy - High Forest 2.3/Trees/Background.png" id="5_s0sim"]
+[ext_resource type="PackedScene" uid="uid://b8qrujbr02m84" path="res://enemies/boar.tscn" id="6_vuse8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4rsi0"]
 texture = ExtResource("1_8fmgm")
@@ -474,10 +475,10 @@ layer_2/name = "Foreground"
 layer_2/tile_data = PackedInt32Array(1769500, 458753, 3, 1769503, 589825, 3, 1769504, 524289, 2, 1769508, 589825, 2, 1769511, 524289, 3, 1441831, 524289, 2, 1114155, 524289, 2, 1114156, 393217, 3, 1114157, 589825, 2, 1048610, 655361, 2, 917531, 524289, 2, 917528, 393217, 3, 851992, 458753, 3, 917529, 458753, 3, 917530, 524289, 3, 917532, 589825, 3, 589866, 589825, 3, 589867, 524289, 2, 589870, 589825, 3, 393248, 589825, 2, 393247, 655361, 2, 393246, 458753, 3, 393240, 458753, 3, 393239, 393217, 3, -65514, 393217, 3, -65511, 393217, 3, -65510, 589825, 2, -65507, 655361, 2, 131116, 393217, 3, 131121, 524289, 2, 131119, 524289, 3, -65512, 524289, 3)
 
 [node name="Player" parent="." instance=ExtResource("2_yr432")]
-position = Vector2(355, -85)
+position = Vector2(305, 54)
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
-position = Vector2(-172, 165)
+position = Vector2(0.999969, -1)
 rotation = -3.14159
 scale = Vector2(3.27781, -118.327)
 limit_smoothed = true
@@ -508,7 +509,8 @@ region_enabled = true
 region_rect = Rect2(800, 0, 96, 256)
 
 [node name="Background2" type="Sprite2D" parent="ParallaxBackground/Hills"]
-position = Vector2(97, 0)
+position = Vector2(139, -59)
+scale = Vector2(1, 1.01563)
 texture = ExtResource("5_s0sim")
 centered = false
 region_enabled = true
@@ -559,7 +561,7 @@ region_enabled = true
 region_rect = Rect2(112, 0, 96, 256)
 
 [node name="Background4" type="Sprite2D" parent="ParallaxBackground/Trees"]
-position = Vector2(331, 98)
+position = Vector2(147, 106)
 texture = ExtResource("5_s0sim")
 region_enabled = true
 region_rect = Rect2(112, 0, 96, 256)
@@ -575,3 +577,9 @@ position = Vector2(504, 102)
 texture = ExtResource("5_s0sim")
 region_enabled = true
 region_rect = Rect2(112, 0, 96, 256)
+
+[node name="Boar" parent="." instance=ExtResource("6_vuse8")]
+position = Vector2(258, 101)
+scale = Vector2(0.8, 0.8)
+run_speed = 200.0
+walk_speed = 30.0
