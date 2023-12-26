@@ -20,6 +20,7 @@ extends CharacterBody2D
 @export var running_state: State
 @export var idle_state: State
 @export var wall_sliding_state: State
+@export var attack_state: State
 
 
 func _ready() -> void:
@@ -36,3 +37,11 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	finit_state_matchine.process_frame(delta)
+
+
+func _on_hit_box_hit(hurtbox: HurtBox) -> void:
+	print("[Hit]hiter: %s >>> hurter:%s" % [self.name, hurtbox.owner.name])
+
+
+func _on_hurt_box_hurt(hit_box: HitBox) -> void:
+	print("[Hurt]hiter: %s >>> hurter:%s" % [hit_box.owner.name, self.name])

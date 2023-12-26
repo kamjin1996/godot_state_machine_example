@@ -581,5 +581,3 @@ region_rect = Rect2(112, 0, 96, 256)
 [node name="Boar" parent="." instance=ExtResource("6_vuse8")]
 position = Vector2(258, 101)
 scale = Vector2(0.8, 0.8)
-run_speed = 200.0
-walk_speed = 30.0

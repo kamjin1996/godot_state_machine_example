@@ -17,3 +17,11 @@ class_name Boar
 func tuning():
 	self.direction = -self.direction
 	self.graphcis.scale.x = self.direction
+
+
+func _on_hit_box_hit(hurtbox: HurtBox) -> void:
+	print("[Hit]hiter: %s >>> hurter:%s" % [self.name, hurtbox.owner.name])
+
+
+func _on_hurt_box_hurt(hit_box: HitBox) -> void:
+	print("[Hurt]hiter: %s >>> hurter:%s" % [hit_box.owner.name, self.name])

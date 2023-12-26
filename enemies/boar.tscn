@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b8qrujbr02m84"]
+[gd_scene load_steps=18 format=3 uid="uid://b8qrujbr02m84"]
 
 [ext_resource type="PackedScene" uid="uid://jea5jl8ufdlr" path="res://enemies/enemy.tscn" id="1_2ulh5"]
 [ext_resource type="Script" path="res://enemies/Boar.gd" id="2_aoxm1"]
@@ -8,6 +8,15 @@
 [ext_resource type="Script" path="res://enemies/BoarIdleState.gd" id="6_70rbg"]
 [ext_resource type="Script" path="res://enemies/BoarRunState.gd" id="7_uipt8"]
 [ext_resource type="Script" path="res://enemies/BoarWalkState.gd" id="8_6yuys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wl6i"]
+size = Vector2(19, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qo62"]
+size = Vector2(34, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imec2"]
+size = Vector2(29, 19)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_noyvr"]
 radius = 11.0454
@@ -199,7 +208,7 @@ target_position = Vector2(-11, -1)
 
 [node name="PlayerChecker" type="RayCast2D" parent="Graphcis" index="1"]
 position = Vector2(-7, -4)
-target_position = Vector2(-51, 0)
+target_position = Vector2(-80, 0)
 collision_mask = 2
 
 [node name="Sprite2D" parent="Graphcis" index="2"]
@@ -210,6 +219,18 @@ hframes = 4
 [node name="CliffChecker" type="RayCast2D" parent="Graphcis" index="3"]
 position = Vector2(-13, 4)
 target_position = Vector2(0, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphcis/HurtBox" index="0"]
+position = Vector2(-1.5, -1)
+shape = SubResource("RectangleShape2D_0wl6i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Graphcis/HurtBox" index="1"]
+position = Vector2(-2, 1.5)
+shape = SubResource("RectangleShape2D_1qo62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphcis/HitBox" index="0"]
+position = Vector2(-1.5, -0.5)
+shape = SubResource("RectangleShape2D_imec2")
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_noyvr")
@@ -239,3 +260,6 @@ boar = NodePath("../..")
 [node name="OnsetTimer" type="Timer" parent="." index="4"]
 wait_time = 2.5
 one_shot = true
+
+[connection signal="hurt" from="Graphcis/HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="hit" from="Graphcis/HitBox" to="." method="_on_hit_box_hit"]

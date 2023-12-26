@@ -58,4 +58,8 @@ func process_physics(delta: float) -> State:
 		# 开始跳跃了，停止郊狼时间倒计时
 		coyote_timer.stop()
 		return player.jump_state
+
+	if Input.is_action_just_pressed("attack"):
+		return player.attack_state
+
 	return null

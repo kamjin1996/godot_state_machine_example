@@ -23,6 +23,10 @@ func process_physics(delta: float) -> State:
 
 	if !player.is_on_floor():
 		return player.fall_state
+
+	if Input.is_action_just_pressed("attack"):
+		return player.attack_state
+
 	return null
 
 
